@@ -1,2 +1,10 @@
 image:
   file: .gitpod.dockerfile
+ports:
+ - port: 3306
+   onOpen: ignore
+ - port: 8000
+   onOpen: open-preview
+tasks:
+ - init: composer install && php artisan key:generate
+   command: php serve
